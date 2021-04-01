@@ -1,0 +1,57 @@
+************************************************
+~Άσκηση 3
+************************************************
+(b) Ερώτημα
+************************************************
+Assumptions:
+
+MemberOf(Kyriakos,Corona).
+MemberOf(Alexis,Corona).
+MemberOf(Fofi,Corona).
+-MemberOf(x,Corona) | isRight(x) | isLiberal(x).
+-isRight(x) | -Likes(x,Socialism).
+Likes(x,Capitalism)| -isLiberal(x).
+-Likes(Kyriakos,x) | -Likes(Alexis,x).
+Likes(Alexis,x) | Likes(Kyriakos,x).
+Likes(Alexis,Capitalism).
+Likes(Alexis,Socialism).
+
+
+%goal
+-MemberOf(x,Corona) | -isLiberal(x) | isRight(x).
+************************************************
+(c) Ερώτημα
+************************************************
+Assumptions:
+
+MemberOf(Kyriakos,Corona).
+MemberOf(Alexis,Corona).
+MemberOf(Fofi,Corona).
+-MemberOf(x,Corona) | isRight(x) | isLiberal(x).
+-isRight(x) | -Likes(x,Socialism).
+Likes(x,Capitalism)| -isLiberal(x).
+-Likes(Kyriakos,x) | -Likes(Alexis,x).
+Likes(Alexis,x) | Likes(Kyriakos,x).
+Likes(Alexis,Capitalism).
+Likes(Alexis,Socialism).
+
+
+%goal
+-MemberOf(x,Corona) | -isLiberal(x) | isRight(x) # answer(x).
+
+
+************************************************
+~Άσκηση 4
+************************************************
+(b) Ερώτημα
+************************************************
+Assumptions:
+
+-In(x,Intersection(y,z)) | In(x,y).
+-In(x,Intersection(y,z)) | In(x,z).
+-In(x,y) | -In(x,z) | In(x,Intersection(y,z)).
+In(F(x,y),x) | SubsetOf(x,y).
+-In(F(x,y),y) | SubsetOf(x,y).
+
+%goal
+-SubsetOf(Intersection(s, t), s).

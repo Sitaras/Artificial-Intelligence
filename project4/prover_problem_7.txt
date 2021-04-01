@@ -1,0 +1,37 @@
+************************************************
+~Άσκηση 7
+************************************************
+(c) Ερώτημα
+************************************************
+Assumptions:
+
+belongsTo(MunicipalCommunity,MunicipalityUnit).
+belongsTo(LocalCommunity,MunicipalityUnit).
+belongsTo(MunicipalityUnit,Municipality).
+belongsTo(MunicipalityUnit,RegionalUnit).
+belongsTo(RegionalUnit,Region).
+belongsTo(Region,DecentralizedAdministration).
+belongsTo(DecentralizedAdministration,Country).
+all x all y all z (belongTo(x,y) & belongTo(y,z) -> belongsTo(x,z)) .
+
+
+subClassOf(Country, AdministrativeUnit).
+subClassOf(DecentralizedAdministration, AdministrativeUnit).
+subClassOf(Region,AdministrativeUnit).
+subClassOf(RegionalUnit,AdministrativeUnit). 
+subClassOf(Municipality,AdministrativeUnit).
+subClassOf(MunicipalityUnit,AdministrativeUnit). 
+subClassOf(MunicipalCommunity,AdministrativeUnit). 
+subClassOf(LocalCommunity,AdministrativeUnit).
+all x all y all z (subClassOf(x,y) & subClassOf(y,z) -> subClassOf(x,z)) .
+
+
+all x all y all z ((partOf(x,Class) & partOf(y,Class) & partOf(z,x) & subClassOf(x,y)) -> partOf(z,y)).
+(all x (subClassOf(x,AdministrativeUnit)->partOf(x,Class))) & partOf(AdministrativeUnit,Class).
+partOf(MunicipalityofAthens,Municipality).
+
+
+
+Goals:
+
+partOf(MunicipalityofAthens,AdministrativeUnit). 

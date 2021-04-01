@@ -1,0 +1,57 @@
+************************************************
+~Άσκηση 8
+************************************************
+(c) Ερώτημα
+************************************************
+Assumptions:
+
+Person(Donald).
+Person(Melania).
+Person(Ivanka).    
+Person(Barron).
+Loves(Donald,Donald).
+Loves(Donald,Ivanka).
+Loves(Ivanka,Donald).
+Loves(Melania,Barron).
+Loves(Barron,Melania).
+
+% predicate completion
+all x ((x=Donald | x=Ivanka) <-> Loves(x,Donald)).
+all x ((x=Barron) <-> Loves(x,Melania)).
+all x ((x=Melania) <-> Loves(x,Barron)).
+all x ((x=Donald) <-> Loves(x,Ivanka)).
+
+
+% domain closure axiom
+all x (x=Donald | x=Melania | x=Ivanka | x=Barron).
+
+% unique names assumption
+Donald!=Melania.
+Donald!=Ivanka.
+Donald!=Barron.
+Ivanka!=Melania.
+Barron!=Melania.
+Barron!=Ivanka.
+
+************************************************
+Goals:
+i)
+exists x exists y (Person(x) & Person(y) & Loves(x,y) & Loves(y,x)).
+ii)
+exists x exists y (x!=y & Person(x) & Person(y) & Loves(x,y) & Loves(y,x)).
+iii)
+-Loves(Melania,Donald).
+iv)
+exists x (Person(x) & -Loves(x,Donald)).
+v)
+all x exists y (x!=y & Person(x) & Person(y) & Loves(y,x)).
+vi)
+all x exists y (x!=y & Person(x) & Person(y) & -Loves(y,x)).
+vii)
+exists x exists y exists z (y!=z & Person(x) & Person(y) & Person(z) & Loves(x,y) & Loves(x,z)).
+
+************************************************
+(d) Ερώτημα
+************************************************
+Προσθέτω στα Assumptions:
+-Loves(Donald,x) #answer(x).
